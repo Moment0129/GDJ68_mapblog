@@ -62,8 +62,7 @@
                                                 </ul>
                                             </li>
                                             
-                                            <li><a href="about.html">About US</a></li>
-                                            <li><a href="contact.html">Contact Us</a></li>
+                                            
                                         </ul>
                                     </nav>
                                 </div>

@@ -161,10 +161,10 @@ uri="http://java.sun.com/jsp/jstl/core" %>
           />
         <input type="hidden" name="lat" id="lat" value="${dto.lat}" />
         <input type="hidden" name="lng" id="lng" value="${dto.lng}" />
-        <div class="input-group mb-3" style="width: 400px">
+        <div class="input-group mb-3" style="width: 400px; display: none;">
           <span class="input-group-text">모임장소</span>
           <input
-            type="text"
+            type="hidden"
             name="address"
             id="address"
             class="form-control"

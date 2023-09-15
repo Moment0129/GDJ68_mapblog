@@ -89,7 +89,7 @@
                                     <small class="text-muted text-start" style="position:relative; float:left;">${feed.createDate}</small>
                                     <button type="button" id="likes" style="position:relative; float:right;" class="btn btn-sm btn-outline-secondary justify-content-end">♡ ${feed.likes}</button>
                                 </div>
-
+                        
                                 <div style="clear:both"></div>
                             </div>
                         </div>

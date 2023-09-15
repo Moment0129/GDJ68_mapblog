@@ -56,6 +56,10 @@ public class MeetingService {
 		return map;
 	}
 	
+	public MeetingDTO getDetailAdmin(MeetingDTO meetingDTO) throws Exception {
+		return meetingDAO.getDetail(meetingDTO);
+	}
+	
 	public int setMeetingJoin(MeetingMemberDTO meetingMemberDTO) throws Exception{
 		
 		return meetingDAO.setMeetingJoin(meetingMemberDTO);
@@ -68,6 +72,10 @@ public class MeetingService {
 	public int setMeetingDelete(MeetingDTO meetingDTO) throws Exception {
 		
 		return meetingDAO.setMeetingDelete(meetingDTO);
+	}
+	
+	public int setMeetingDeleteAdmin(MeetingDTO meetingDTO) throws Exception {
+		return meetingDAO.setMeetingDeleteAdmin(meetingDTO);
 	}
 	
 	public int setUpdate(MeetingDTO meetingDTO) throws Exception {

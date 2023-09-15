@@ -29,13 +29,11 @@
     	.modalfloat{
     		float: left;
     	}
-      #followList{
-        float: left;
-      }
       a{
       	display: block;
       	text-decoration: none;
       	color: black;
+        
       }
     </style>
   </head>
@@ -45,6 +43,7 @@
       class="modalfloat"
       data-bs-toggle="modal"
       data-bs-target="#exampleModalFollow"
+      style="margin: 0 10px;"
     >
       팔로워 :${followerCnt}
     </a>
@@ -95,6 +94,7 @@
       class="modalfloat"
       data-bs-toggle="modal"
       data-bs-target="#exampleModalFollower"
+      style="margin-right: 10px;"
     >
       팔로잉 :${followCnt}
     </a>

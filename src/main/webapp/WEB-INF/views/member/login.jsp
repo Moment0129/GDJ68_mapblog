@@ -112,7 +112,7 @@
 				<form action="./login" method="post">
 					
 					<label></label>
-					<input type="text" id="ip" name="id" placeholder="ID를 입력하세요" value="user02" style="font-size: larger; text-align:center;">
+					<input type="text" id="ip" name="id" placeholder="ID를 입력하세요" value="user05" style="font-size: larger; text-align:center;">
 
 					<label></label>
 					<input type="password" id="ip" name="pw" placeholder="PW를 입력하세요" value="12341234" style="font-size: larger; text-align:center;">

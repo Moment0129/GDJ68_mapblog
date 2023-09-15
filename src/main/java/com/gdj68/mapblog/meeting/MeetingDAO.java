@@ -49,6 +49,10 @@ public class MeetingDAO {
 		return sqlSession.delete(NAMESPACE+"setMeetingDelete",meetingDTO);
 	}
 	
+	public int setMeetingDeleteAdmin(MeetingDTO meetingDTO) throws Exception {
+		return sqlSession.delete(NAMESPACE+"setMeetingDeleteAdmin",meetingDTO);
+	}
+	
 	public int setUpdate(MeetingDTO meetingDTO) throws Exception {
 		return sqlSession.update(NAMESPACE+"setUpdate",meetingDTO);
 	}

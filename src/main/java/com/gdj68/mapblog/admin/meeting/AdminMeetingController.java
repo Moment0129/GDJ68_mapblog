@@ -33,23 +33,14 @@ public class AdminMeetingController {
 	
 	@GetMapping("detail")
 	public String getDetail(MeetingDTO meetingDTO, Model model,HttpSession session)throws Exception {
-		System.out.println(meetingDTO.getMeetingNum());
-		Map<String, Object> map = new HashMap<String, Object>();
-		map = meetingService.getDetail(meetingDTO,session);
-		long result = (Long)map.get("result");
-		long personnel = (Long)map.get("personnel");
-		meetingDTO = (MeetingDTO)map.get("meetingDTO");
-		List<MeetingMemberDTO> ar = (List<MeetingMemberDTO>)map.get("meetingMemberList");
-		model.addAttribute("dto",meetingDTO);
-		model.addAttribute("result", result);
-		model.addAttribute("personnel", personnel);
-		model.addAttribute("meetingMemberList", ar);
+		meetingDTO = meetingService.getDetailAdmin(meetingDTO);
+		model.addAttribute("dto", meetingDTO);
 		return "admin/adminMeeting/adminMeetingDetail";
 	}
 	
 	@GetMapping("delete")
 	public String setMeetingDelete(MeetingDTO meetingDTO) throws Exception {
-		meetingService.setMeetingDelete(meetingDTO);
+		meetingService.setMeetingDeleteAdmin(meetingDTO);
 		return "redirect:./list";
 	}
 	

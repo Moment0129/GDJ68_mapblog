@@ -15,7 +15,10 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
     <title>Mapper Admin Main Page</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css"
+      rel="stylesheet"
+    />
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <!-- Custom fonts for this template-->
@@ -28,10 +31,18 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
       rel="stylesheet"
     />
-
+    <style>
+      form > div {
+        margin: 0 auto;
+        text-align: center;
+      }
+      #btn {
+        margin: 0 auto !important;
+      }
+    </style>
     <!-- Custom styles for this template-->
     <link href="/resources/css/admin/sb-admin-2.min.css" rel="stylesheet" />
-   
+
     <c:import url="../../temp/bootStrap.jsp"></c:import>
 
     <style></style>
@@ -54,31 +65,45 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
         <!-- 페이지별 내용 -->
         <form
-          action="./adminNotice/add"
+          action="./add"
           method="post"
           enctype="multipart/form-data"
         >
-          <div class="input-group text-center">
-            <span class="input-group-text" id="basic-addon2">제목</span
-            ><input type="text" name="subject" />
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">제목</span>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Username"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+              name="subject"
+            />
           </div>
-          <br />
-          <div class="input-group text-center">
-            <span class="input-group-text" id="basic-addon2">내용</span
-            ><textarea
-              class="input-group"
-              rows=""
-              cols=""
+
+          <div class="input-group">
+            <span class="input-group-text">내용</span>
+            <textarea
+              class="form-control"
+              aria-label="With textarea"
+              cols="15"
               name="contents"
               id="con"
+              style="height: 150px"
             ></textarea>
           </div>
           <br />
-          <div class="input-group text-center">
-            <span class="input-group-text" id="basic-addon2">작성자</span
-            ><input type="text" name="adminId" />
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">작성자</span>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Username"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+              name="adminId"
+            />
           </div>
-          <br />
 
           <div>
             <button type="button" class="my btn btn-danger" id="fileBtn">
@@ -94,9 +119,11 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 					</select> -->
           </p>
 
-          <button type="submit">등록</button>
+          <button type="submit" class="btn btn-outline-primary" id="btn">
+            등록
+          </button>
         </form>
-        <script src="/resources/js/fileAdd.js"></script>
+        <script src="/resources/js/temp/fileAdd.js"></script>
 
         <!-- 페이지별 내용 끝 -->
 

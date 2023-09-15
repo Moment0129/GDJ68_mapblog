@@ -16,6 +16,26 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       type="image/x-icon"
       href="/resources/img/index/favicon.ico"
     />
+    <style>
+      .sel {
+        position: relative;
+        left: 813px;
+        top: -62px;
+      }
+      main {
+        text-align: center;
+        height: 1200px;
+      }
+      .frm > div {
+        margin: 0 auto;
+      }
+      #nick {
+        height: 41px;
+        border-radius: 6px;
+        /* border-left: none; */
+        margin-top: 8px;
+      }
+    </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link
@@ -63,36 +83,63 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 
     <!-- Main start -->
     <main>
-      <h1>add Page</h1>
-      <form action="./add" method="post" enctype="multipart/form-data">
-        <div class="input-group text-center">
+      <h1>add Page</h1><form
+        action="./add"
+        method="post"
+        enctype="multipart/form-data"
+        class="frm"
+      >
+        <div class="input-group mb-3" style="width: 845px">
           <span class="input-group-text" id="basic-addon2">제목</span
-          ><input type="text" name="qnaTitle" />
+          ><input
+            type="text"
+            name="qnaTitle"
+            class="form-control"
+            placeholder="제목을 입력하세요"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+          />
         </div>
-        <br />
-        <div class="input-group text-center">
-          <span class="input-group-text" id="basic-addon2">내용</span
+
+        <div class="input-group">
+          <span
+            class="input-group-text"
+            id="basic-addon2"
+            style="margin-left: 516.759px"
+            >내용</span
           ><textarea
-            class="input-group"
+            class="form-control"
+            aria-label="With textarea"
             rows=""
             cols=""
             name="qnaContents"
             id="contents"
+            style="width: 100%"
           ></textarea>
         </div>
-        <br />
-        <div class="input-group text-center">
+
+        <div class="input-group mb-3" style="margin-top: 15px">
           <input type="hidden" name="memberId" value="${member.id}" />
-          <span class="input-group-text" id="basic-addon2">작성자</span>
-          <input type="text" name="nickName" value="${member.nickName}" />
+          <span
+            class="input-group-text"
+            id="basic-addon1"
+            style="margin: 10px 0 5px 516.759px"
+            >작성자</span
+          >
+          <input
+            readonly
+            type="text"
+            name="nickName"
+            value="${member.nickName}"
+            id="nick"
+          />
         </div>
-        <br />
-
-        <select name="privateContents">
-          <option value="0">비밀글</option>
-          <option value="1" selected>공개글</option>
-        </select>
-
+        <div>
+          <select name="privateContents" class="sel">
+            <option value="0">비밀글</option>
+            <option value="1" selected>공개글</option>
+          </select>
+        </div>
         <div>
           <button type="button" class="my btn btn-danger" id="fileBtn">
             File추가
@@ -107,7 +154,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 		</select> -->
         </p>
 
-        <button type="submit">등록</button>
+        <button type="submit" class="btn btn-outline-secondary">등록</button>
       </form>
     </main>
 
@@ -123,51 +170,50 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <script src="/resources/js/index/vendor/modernizr-3.5.0.min.js"></script>
     <script src="/resources/js/temp/fileAdd.js"></script>
     <script>
-    $("#contents").summernote({
-    	  height: 400,
-    	  callbacks: {
-    	    onImageUpload: function (files) {
-    	      alert("이미지 업로드");
-    	      // 이미지를 서버로 전송하고 응답으로 이미지 경로와 파일명을 받아서 img 태그를 만들어서 src 속성에 이미지 경로를 넣는 코드
+      $("#contents").summernote({
+        height: 400,
+        callbacks: {
+          onImageUpload: function (files) {
+            alert("이미지 업로드");
+            // 이미지를 서버로 전송하고 응답으로 이미지 경로와 파일명을 받아서 img 태그를 만들어서 src 속성에 이미지 경로를 넣는 코드
 
-    	      let formData = new FormData();
-    	      formData.append("files", files[0]);
-    	      $.ajax({
-    	        type: "post",
-    	        url: "setContentsImg",
-    	        data: formData,
-    	        cache: false,
-    	        enctype: "multipart/form-data",
-    	        contentType: false,
-    	        processData: false,
-    	        success: function (result) {
-    	          $("#contents").summernote("insertImage", result.trim());
-    	        },
-    	        error: function () {
-    	          console.log("error");
-    	        },
-    	      });
-    	    },
-    	    onMediaDelete: function (files) {
-    	      let path = $(files[0]).attr("src"); // /resources/upload/notice/파일명
+            let formData = new FormData();
+            formData.append("files", files[0]);
+            $.ajax({
+              type: "post",
+              url: "setContentsImg",
+              data: formData,
+              cache: false,
+              enctype: "multipart/form-data",
+              contentType: false,
+              processData: false,
+              success: function (result) {
+                $("#contents").summernote("insertImage", result.trim());
+              },
+              error: function () {
+                console.log("error");
+              },
+            });
+          },
+          onMediaDelete: function (files) {
+            let path = $(files[0]).attr("src"); // /resources/upload/notice/파일명
 
-    	      $.ajax({
-    	        type: "post",
-    	        url: "./setContentsImgDelete",
-    	        data: {
-    	          path: path,
-    	        },
-    	        success: function (result) {
-    	          console.log(result);
-    	        },
-    	        error: function () {
-    	          console.log("error");
-    	        },
-    	      });
-    	    },
-    	  },
-    	});
-
+            $.ajax({
+              type: "post",
+              url: "./setContentsImgDelete",
+              data: {
+                path: path,
+              },
+              success: function (result) {
+                console.log(result);
+              },
+              error: function () {
+                console.log("error");
+              },
+            });
+          },
+        },
+      });
     </script>
     <!-- Jquery, Popper, Bootstrap -->
     <script src="/resources/js/index/vendor/jquery-1.12.4.min.js"></script>

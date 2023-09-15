@@ -22,6 +22,8 @@
 	
 	
 	
+	
+	
 	<!-- Interceptor 설정 -->
 	
 	<interceptors>
@@ -31,6 +33,13 @@
 				<exclude-mapping path="/*"/>
 				
 				<beans:bean class="com.gdj68.mapblog.interceptors.AdminInterceptor"></beans:bean>
+		</interceptor>
+		
+	<!-- Banner Interceptor 권한 설정 -->
+		<interceptor>
+			<mapping path="/admin/adminBanner/list"/>
+			<exclude-mapping path="/*"/>
+			<beans:bean class="com.gdj68.mapblog.interceptors.AdminBannerInterceptor"></beans:bean>
 		</interceptor>
 	
 	<!-- Admin Login Interceptor -->
@@ -77,7 +86,7 @@
 					<mapping path="/feed/update"/>
 					<mapping path="/feed/delete"/>
 					<mapping path="/feed/likesList"/>
-					<mapping path="/calendar/myCalendar/"/>
+					
 					<exclude-mapping path="/*"/>
 	
 					<beans:bean class="com.gdj68.mapblog.interceptors.LoginInterceptor2"></beans:bean>

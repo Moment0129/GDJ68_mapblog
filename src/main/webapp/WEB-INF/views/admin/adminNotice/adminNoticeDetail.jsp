@@ -20,10 +20,63 @@
 
     <!-- Custom styles for this template-->
     <link href="/resources/css/admin/sb-admin-2.min.css" rel="stylesheet">
-<c:import url="../../temp/bootStrap.jsp"></c:import>
+
 
 <style>
-
+#content-wrapper{
+                    height: 1000px;
+                }
+                #thead{
+                    width: 80%;
+                    margin: 0 auto;
+                    
+                }
+                .secondTable{
+                    
+                    width: 80%;
+                    height: 600px;
+                    margin: 40px auto;
+                    border: 1px solid #ccc;
+                }
+                .tableBoard{
+                    
+                    width: 80%;
+                    height: 600px;
+                    margin: 0 auto;
+                }
+                
+                .commentPosition{
+                    position: relative;
+                    top: 360px;
+                    left:0;
+                }
+                #comment{
+                    height: 57px;
+                    width: 235px;
+                    margin: 0 auto;
+                    border-radius: 15px;
+                }
+                #commentAdd{
+                    position: absolute;
+                    top: 10px;
+                    left: 1088px;
+                }
+                #upBtn{
+                    position: relative;
+                    width:57.45px;
+                    top: 158px;
+                    left: 344px
+                }
+                #delBtn{
+                    position: relative;
+                    top: 121px;
+                    left: 413px;
+                }
+                #more{
+                    margin: 0 auto;
+                    width: 80%;
+                    text-align: center;
+                }
 </style>
 
 </head>
@@ -47,50 +100,50 @@
                 <nav>
 
                     <c:import url="../../temp/adminHeader.jsp"></c:import>
+                    <c:import url="../../temp/bootStrap.jsp"></c:import>
 
                 </nav>
                 <!-- End of Topbar -->
 
 
 			<!-- 페이지별 내용 -->
-			<table class="table table-dark table-hover">
-					<thead>
-						<th>글번호</th>
-						<th>제목</th>
-						<th>작성자</th>
-						<th>작성일</th>
-						
-						
-					</thead>
-					<tbody>
-							<tr>
-								<td>${dto.noticeNum}</td>
-								<td>${dto.subject}</td>
-								<td>${dto.adminId}</td>
-								<td>${dto.noticeDate}</td>
-							</tr>
-							</tbody>
-						</table>
-							<table class="table table-dark table-hover">
-							  <tr>
-							   		<th>내용</th>
-							  </tr>
-							  <tr>
-							    <td>${dto.contents}</td>
-							  </tr>
-							</table>
-							
-							 	<c:forEach items="${dto.fileDTOs}" var="f">	
-									<img src="/resources/upload/notice/${f.fileName}">
-								</c:forEach> 
-					
+			<div class="tableBoard">
+                <table class="table table-striped table-hover" id="thead">
+                    <thead>
+                        <th>글번호</th>
+                        <th>제목</th>
+                        <th>작성자</th>
+                        <th>작성일</th>
+                        
+                        
+                    </thead>
+                    <tbody>
+                            <tr>
+                                <td>${dto.noticeNum}</td>
+                                <td>${dto.subject}</td>
+                                <td>${dto.adminId}</td>
+                                <td>${dto.noticeDate}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                            <div class="secondTable">
+                              
+                                <div>${dto.contents}</div>
+                                <c:forEach items="${dto.fileDTOs}" var="f">	
+                                    <img src="../resources/upload/notice/${f.fileName}" style="width: 450px; height: 450px;">
+                                </c:forEach> 
+                            </div>
+                            
+                </div>
+                <c:if test="${not empty adminMember}">
+                    <a href="./update?noticeNum=${dto.noticeNum}" class="btn btn-outline-secondary" id="upBtn">수정</a>
+                   <form action="./delete?noticeNum=${dto.noticeNum}" method="post"> 
+                   <button type="submit" class="btn btn-outline-danger" id="delBtn">삭제</button> 
+                   </form>
+                   </c:if>
+			</div>
 				
-				<c:if test="${not empty adminMember}">
-				 <a href="/admin/adminNotice/update?noticeNum=${dto.noticeNum}">수정</a>
-				<form action="/admin/adminNotice/delete?noticeNum=${dto.noticeNum}" method="post"> 
-				<button type="submit">삭제</button> 
-				</form>
-				</c:if>
+	
 
 
 

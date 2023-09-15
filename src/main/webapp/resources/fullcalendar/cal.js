@@ -35,7 +35,9 @@ $.ajax({
     for (const key in res) {
       let obj = new Object();
       obj.title = res[key].title;
-      obj.start = res[key].tripDate;
+      let date = new Date(res[key].tripDate);
+      let tripDate = date.toISOString().substring(0,10);
+      obj.start =tripDate; 
 
       arr.push(obj);
     }

@@ -76,6 +76,15 @@
 		WHERE ADMINID = #{adminId}
   	</insert>
   	
+  	<select id="getMyPage" parameterType="AdminMemberDTO" resultType="AdminMemberDTO">
+  		SELECT
+  			*
+  		FROM
+  			ADMINMEMBER
+  		WHERE
+  			ADMINID = #{adminId}
+  	</select>
+  	
   	<!-- admin계정 업데이트 -->
   	<update id="setAdminUpdate" parameterType="AdminMemberDTO">
   		UPDATE

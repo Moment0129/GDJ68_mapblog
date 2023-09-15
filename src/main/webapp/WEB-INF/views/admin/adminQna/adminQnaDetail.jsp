@@ -11,7 +11,61 @@
     <meta name="author" content="">
 
     <title>Mapper Admin Main Page</title>
-
+	<style>
+		main{
+                    height: 1500px;
+                }
+                #thead{
+                    width: 80%;
+                    margin: 0 auto;
+                    
+                }
+                .secondTable{
+                    
+                    width: 80%;
+                    height: 600px;
+                    margin: 40px auto;
+                    border: 1px solid #ccc;
+                }
+                .tableBoard{
+                    
+                    width: 80%;
+                    height: 600px;
+                    margin: 0 auto;
+                }
+                
+                .commentPosition{
+                    position: relative;
+                    top: 360px;
+                    left:0;
+                }
+                #comment{
+                    height: 57px;
+                    width: 235px;
+                    margin: 0 auto;
+                    border-radius: 15px;
+                }
+                #commentAdd{
+                    position: absolute;
+                    top: 10px;
+                    left: 1088px;
+                }
+                #upBtn{
+                    position: relative;
+                    top: -10px;
+                    left: 186px
+                }
+                #delBtn{
+                    position: relative;
+                    top: -47px;
+                    left: 262px;
+                }
+                #more{
+                    margin: 0 auto;
+                    width: 80%;
+                    text-align: center;
+                }
+	</style>
     <!-- Custom fonts for this template-->
     <link href="/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
@@ -20,7 +74,7 @@
 
     <!-- Custom styles for this template-->
     <link href="/resources/css/admin/sb-admin-2.min.css" rel="stylesheet">
-<c:import url="../../temp/bootStrap.jsp"></c:import>
+
 
 <style>
 
@@ -47,7 +101,7 @@
                 <nav>
 
                     <c:import url="../../temp/adminHeader.jsp"></c:import>
-
+					<c:import url="../../temp/bootStrap.jsp"></c:import>
                 </nav>
                 <!-- End of Topbar -->
 
@@ -59,7 +113,7 @@
 		<h1>detail</h1>
 	
 		
-		<table class="table table-dark table-hover">
+		<table class="table table-striped table-hover" id="thead">
 			<thead>
 				<th>글번호</th>
 				<th>제목</th>
@@ -77,28 +131,25 @@
 					</tr>
 					</tbody>
 				</table>
-					<table class="table table-dark table-hover">
-					  <tr>
-					   		<th>내용</th>
-					  </tr>
-					  <tr>
-					    <td>${dto.qnaContents}</td>
-					    <td>${memberId}</td>
-					  </tr>
-					</table>
-					
-					 	<c:forEach items="${dto.fileDTOs}" var="f">	
-							<img src="../resources/upload/qna/${f.fileName}">
+					<div class="secondTable">
+
+						<div>${dto.qnaContents}</div>
+						<c:forEach items="${dto.fileDTOs}" var="f">	
+							<img src="../resources/upload/qna/${f.fileName}" style="width: 450px; height: 450px;">
 						</c:forEach> 
+					  
+					</div>
+					
+
 			
 		
 		<c:choose>
 	    <c:when test="${dto.memberId eq member.id or not empty adminMember}">
-	        <a href="./update?qnaNum=${dto.qnaNum}" >수정</a>
+	        <a href="./update?qnaNum=${dto.qnaNum}" class="btn btn-outline-secondary" id="upBtn">수정</a>
 	    
 	
 	        <form action="./delete?qnaNum=${dto.qnaNum}" method="post">
-	            <button type="submit">삭제</button>
+	            <button type="submit" class="btn btn-outline-danger" id="delBtn">삭제</button>
 	        </form>
 	 
 	    </c:when>
@@ -109,11 +160,11 @@
 		<button id="del" data-url="delete" data-delete-name="num" data-delete-num="${dto.num}" class="c1">삭제</button> --%>
 	
 	
-		<div>
+		<div class="commentPosition">
 
 				<div class="mb-3">		
-					<textarea  name="contents" class="form-control" id="comment"></textarea>
-					<button id="commentAdd">댓글등록</button>
+					<input type="text"  name="contents" class="form-control" id="comment">
+					<button id="commentAdd" class="btn btn-outline-secondary">댓글등록</button>
 				</div>
 
 			<div>

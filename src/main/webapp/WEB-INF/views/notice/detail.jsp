@@ -26,6 +26,63 @@
             <link rel="stylesheet" href="/resources/css/index/slick.css">
             <link rel="stylesheet" href="/resources/css/index/nice-select.css">
             <link rel="stylesheet" href="/resources/css/index/style.css">
+            <style>
+                
+                main{
+                    height: 1500px;
+                }
+                #thead{
+                    width: 80%;
+                    margin: 0 auto;
+                    
+                }
+                .secondTable{
+                    
+                    width: 80%;
+                    height: 600px;
+                    margin: 40px auto;
+                    border: 1px solid #ccc;
+                }
+                .tableBoard{
+                    
+                    width: 80%;
+                    height: 600px;
+                    margin: 0 auto;
+                }
+                
+                .commentPosition{
+                    position: relative;
+                    top: 360px;
+                    left:0;
+                }
+                #comment{
+                    height: 57px;
+                    width: 235px;
+                    margin: 0 auto;
+                    border-radius: 15px;
+                }
+                #commentAdd{
+                    position: absolute;
+                    top: 10px;
+                    left: 1088px;
+                }
+                #upBtn{
+                    position: relative;
+                    width: 57.45;
+                    top: 158px;
+                    left: 344px
+                }
+                #delBtn{
+                    position: relative;
+                    top: 121px;
+                    left: 413px;
+                }
+                #more{
+                    margin: 0 auto;
+                    width: 80%;
+                    text-align: center;
+                }
+            </style>
    </head>
 
    <body>
@@ -45,7 +102,7 @@
         <!-- Header Start -->
 
 		<c:import url="/WEB-INF/views/temp/header.jsp"></c:import>
-
+        <c:import url="../temp/bootStrap.jsp"></c:import>
 
         <!-- Header End -->
 
@@ -54,11 +111,11 @@
 
 
 	
-	<h1>detail</h1>
+	
 
 	<!-- Getter, Setter 의 이름 : 메서드에서 get을 제외하고 첫번째글자를 소문자로 바꾼것 -->
-	
-	<table class="table table-dark table-hover">
+	<div class="tableBoard">
+	<table class="table table-striped table-hover" id="thead">
 		<thead>
 			<th>글번호</th>
 			<th>제목</th>
@@ -76,25 +133,22 @@
 				</tr>
 				</tbody>
 			</table>
-				<table class="table table-dark table-hover">
-				  <tr>
-				   		<th>내용</th>
-				  </tr>
-				  <tr>
-				    <td>${dto.contents}</td>
-				  </tr>
-				</table>
-				
-				 	<c:forEach items="${dto.fileDTOs}" var="f">	
-						<img src="../resources/upload/notice/${f.fileName}">
+				<div class="secondTable">
+				  
+				    <div>${dto.contents}</div>
+                    <c:forEach items="${dto.fileDTOs}" var="f">	
+						<img src="../resources/upload/notice/${f.fileName}" style="width: 450px; height: 450px;">
 					</c:forEach> 
+				</div>
+				
+	</div>			 	
 		
 	
-	<c:if test="${not empty adminMember}">
-	 <a href="./update?noticeNum=${dto.noticeNum}">수정</a>
+	<!-- <c:if test="${not empty adminMember}">
+	 <a href="./update?noticeNum=${dto.noticeNum}" class="btn btn-outline-secondary" id="upBtn">수정</a>
 	<form action="./delete?noticeNum=${dto.noticeNum}" method="post"> 
-	<button type="submit">삭제</button> 
-	</form>
+	<button type="submit" class="btn btn-outline-danger" id="delBtn">삭제</button> 
+	</form> -->
 	</c:if>
 
 

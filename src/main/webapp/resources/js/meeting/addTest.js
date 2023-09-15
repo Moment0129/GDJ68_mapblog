@@ -128,33 +128,6 @@ function getKakaoMap(centertLat, centerLng) {
         // 마커 위치를 클릭한 위치로 옮깁니다
         marker.setPosition(latlng);
 
-           searchDetailAddrFromCoords(coords, function (result, status) {
-        if (status === kakao.maps.services.Status.OK) {
-          var detailAddr = !!result[0].road_address
-            ? "<div>도로명주소 : " +
-              result[0].road_address.address_name +
-              "</div>"
-            : "";
-          detailAddr +=
-            "<div>지번 주소 : " + result[0].address.address_name + "</div>";
-
-          var content =
-            '<div class="bAddr">' +
-            '<span class="title">법정동 주소정보</span>' +
-            detailAddr +
-            "</div>";
-
-          // 마커를 클릭한 위치에 표시합니다
-          marker.setPosition(coords);
-          marker.setMap(map);
-
-          // 인포윈도우에 클릭한 위치에 대한 법정동 상세 주소정보를 표시합니다
-          infowindow.setContent(content);
-          infowindow.open(map, marker);
-          setAddress(result[0]);
-        }
-      });
-
         let message = "클릭한 위치의 위도는 " + latlng.getLat() + " 이고, ";
         message += "경도는 " + latlng.getLng() + " 입니다";
 
@@ -202,35 +175,7 @@ function getKakaoMap(centertLat, centerLng) {
         position: map.getCenter(),
       });
       // 지도에 마커를 표시합니다
-      // marker.setMap(map);
-      let getLatLng = map.getCenter();
-
-      searchDetailAddrFromCoords(getLatLng, function (result, status) {
-        if (status === kakao.maps.services.Status.OK) {
-          var detailAddr = !!result[0].road_address
-            ? "<div>도로명주소 : " +
-              result[0].road_address.address_name +
-              "</div>"
-            : "";
-          detailAddr +=
-            "<div>지번 주소 : " + result[0].address.address_name + "</div>";
-
-          var content =
-            '<div class="bAddr">' +
-            '<span class="title">법정동 주소정보</span>' +
-            detailAddr +
-            "</div>";
-
-          // 마커를 클릭한 위치에 표시합니다
-          marker.setPosition(getLatLng);
-          marker.setMap(map);
-
-          // 인포윈도우에 클릭한 위치에 대한 법정동 상세 주소정보를 표시합니다
-          infowindow.setContent(content);
-          infowindow.open(map, marker);
-          setAddress(result[0]);
-        }
-      });
+      marker.setMap(map);
 
       // 지도에 클릭 이벤트를 등록합니다
       // 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
@@ -500,7 +445,6 @@ var checkResult = [false, false];
 // });
 
 btn.addEventListener("click", function () {
-  let personnelVal =document.getElementById("personnel").value;
   if (title.value == "") {
     alert("제목은 필수 입니다.");
     title.focus();
@@ -514,11 +458,11 @@ btn.addEventListener("click", function () {
       alert("날짜를 입력해 주세요.");
       document.getElementById("meetingDate").focus();
     }
-    if (personnelVal != "" && (personnelVal > 1 && personnelVal < 9) ) {
+    if (document.getElementById("personnel").value != "") {
       checkResult[0] = true;
       document.getElementById("personnel").focus();
     } else {
-      alert("모집인원을 확인해주세요.");
+      alert("모집인원을 입력해주세요.");
     }
     let c = checkResult.includes(false);
     if (!c) {

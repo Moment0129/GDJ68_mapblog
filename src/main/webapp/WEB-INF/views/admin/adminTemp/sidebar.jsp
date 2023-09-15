@@ -41,7 +41,6 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Automation:</h6>
                         <a class="collapse-item" href="/admin/adminBanner/list">Banner</a>
-                        <a class="collapse-item" href="#">Menu Tab</a>
                     </div>
                 </div>
             </li>
@@ -95,11 +94,11 @@
             </li>
 
 			<!-- 사내공지사항 -->
-            <li class="nav-item">
+           <!--  <li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>사내공지사항</span></a>
-            </li>
+            </li> -->
 			
 <!--
              Nav Item - Charts

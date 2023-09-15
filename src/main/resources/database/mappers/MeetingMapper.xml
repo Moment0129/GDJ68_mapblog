@@ -36,6 +36,10 @@
   		DELETE MEETING WHERE ID = #{id} AND MEETINGNUM = #{meetingNum}
   	</delete>
   	
+  	<delete id="setMeetingDeleteAdmin" parameterType="MeetingDTO">
+  		DELETE MEETING WHERE MEETINGNUM = #{meetingNum}
+  	</delete>
+  	
   	<update id="setUpdate">
   		UPDATE MEETING SET TITLE=#{title}, CONTENTS=#{contents},MEETINGDATE=to_date(#{meetingDate},'YYYY-MM-DD HH24:MI'),LAT=#{lat},LNG=#{lng},PERSONNEL=#{personnel},ADDRESS=#{address} WHERE MEETINGNUM=#{meetingNum}
   	</update>

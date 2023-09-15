@@ -2,6 +2,8 @@ package com.gdj68.mapblog.admin.member;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -51,6 +53,12 @@ public class AdminMemberService {
 	//update
 	public int setAdminUpdate(AdminMemberDTO adminMemberDTO)throws Exception{
 		return adminMemberDAO.setAdminUpdate(adminMemberDTO);
+	}
+	
+	//
+	public AdminMemberDTO getMyPage(AdminMemberDTO adminMemberDTO)throws Exception{
+		
+		return adminMemberDAO.getMyPage(adminMemberDTO);
 	}
 	
 	

@@ -55,7 +55,7 @@
 			<!-- 페이지별 내용 -->
 
 			<h1>adminDetail</h1>
-			<button id="del" data-url="delete" class="btn btn-outline-primary c1"  for="btn-check-outlined" data-delete-name="num" data-delete-num="${dto.num}">삭제</button>
+			<!-- <button id="del" data-url="delete" class="btn btn-outline-primary c1"  for="btn-check-outlined" data-delete-name="num" data-delete-num="${dto.num}">삭제</button> -->
 			
 				<div class="mb-3">
 					${adminDTO.adminId}
@@ -76,6 +76,11 @@
 				<div class="mb-3">
 					<a id="adminUpdate" href="./adminUpdate?adminId=${adminDTO.adminId}">수정</a>
 				</div>
+                <div class="mb-3">
+					<a id="adminDelete" href="./adminDelete?adminId=${adminDTO.adminId}">삭제</a>
+				</div>
+                
+
 			
 
 			<!-- 페이지별 내용 끝 -->

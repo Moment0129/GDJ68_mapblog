@@ -70,9 +70,16 @@
                         <div class="row">
                             <div class="col-xl-9 col-lg-9 col-md-9">
                                 <div class="hero__caption">
-                                    <h1>Grand Open <span>Mapper!</span> </h1>
-                                    <p>Mapper를 통해 일상을 기록하세요</p>
-                                </div>
+                                    <c:if test="${adminBannerDTO2 ne null}">
+                                        <h1>${adminBannerDTO2.mainTitle}</h1>
+                                        <p>${adminBannerDTO2.subTitle}</p>
+                                    </c:if>
+                                    <c:if test="${adminBannerDTO2 eq null}">
+                                        <h1>Grand Open Mapper!</h1>
+                                        <p>Mapper를 통해 일상을 기록하세요</p>
+                                    </c:if>
+                                    
+                                 </div>
                             </div>
                         </div>
                       
@@ -133,7 +140,7 @@
          
          
                         <!-- 조회수 많은 Places Start -->
-                        <div class="favourite-place place-padding">
+                        <div class="favourite-place place-padding" style="border-bottom: solid 1px #eee;">
                             <div class="container">
                                 <!-- Section Tittle -->
                                 <div class="row">
@@ -174,7 +181,7 @@
 
 
                     <!-- 2주 내 작성 좋아요 많은 Places Start -->
-                    <div class="favourite-place place-padding">
+                    <div class="favourite-place place-padding" style="border-bottom: solid 1px #eee;">
                         <div class="container">
                             <!-- Section Tittle -->
                             <div class="row">
@@ -215,7 +222,7 @@
 
 
                 <!-- 최근 글 top6 Places Start -->
-                <div class="favourite-place place-padding">
+                <div class="favourite-place place-padding" style="border-bottom: solid 1px #eee;">
                     <div class="container">
                         <!-- Section Tittle -->
                         <div class="row">
@@ -255,7 +262,7 @@
             </div>
 
                 <!-- 인플루언서 TOP 3 (조회수 기준) Places Start -->
-                <div class="favourite-place place-padding">
+                <div class="favourite-place place-padding" style="border-bottom: solid 1px #eee;">
                     <div class="container">
                         <!-- Section Tittle -->
                         <div class="row">

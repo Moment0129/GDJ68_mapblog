@@ -42,13 +42,33 @@
 				display: block;
 				text-align: center;
 			}
+			.pwPosition{
+				position: relative;
+				right: -800px;
+				top: -824px;
+			}
+			.pwPosition2{
+				position: relative;
+				top: 0;
+				right: 0;
+			}
+			#dm{
+				position: relative;
+				top: -84px;
+				right: -191px;
+			}
+			#pw1{
+				position: relative;
+				top: -6px;
+				right: -15px;
+			}
 		</style>
 		
 		<meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="manifest" href="site.webmanifest">
 		<link rel="shortcut icon" type="image/x-icon" href="/resources/img/index/favicon.ico">
-
+		<link rel="stylesheet" href="/resources/css/member/join.css" type="text/css" />
     <!-- Custom fonts for this template-->
     <link href="/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
@@ -90,7 +110,7 @@
 
 
 
-			<h2>${requestScope.dto.id} 님의 상세정보</h2>
+			<h3 style="margin-bottom: 45px; text-align: center; margin-top: 50px;">${requestScope.dto.id} 님의 상세정보</h3>
 
 
 	
@@ -100,7 +120,7 @@
 
 				<h5 class="inf">ID</h5>
 				<input style="text-align: center;" type="text" class="td" value="${requestScope.dto.id}" name="id" id="id" readonly><br><br>
-				<h5 class="inf">PW</h5>
+				<h5 class="inf">NAME</h5>
 				<input style="text-align: center;" type="text" name="name" class="td" value="${requestScope.dto.name}" id="name" readonly><br><br>
 				<h5 class="inf">NICKNAME</h5>
 				<input style="text-align: center;" type="text" name="nickName" class="td" value="${requestScope.dto.nickName}" id="nickName" readonly><br><br>
@@ -119,12 +139,27 @@
 			<c:if test="${requestScope.dto.publics eq 0}">
 				<input style="text-align: center;" type="text" class="td" id="publics" name="publics" value="비공개 계정" readonly><br><br>
 		   </c:if><br><br>
-
-			<a href="/admin/adminUser/userUpdate?id=${requestScope.dto.id}" >비밀번호초기화</a>
+		   <div class="pwPosition">
+			<div class="pwPosition2"> 
+			<a href="/admin/adminUser/userUpdate?id=${requestScope.dto.id}"  class="btn btn-outline-secondary" id="pw1">비밀번호초기화</a>
 			<p>초기비밀번호 : a123456</p>
-		
-			<a href="/admin/adminUser/userDelete?id=${requestScope.dto.id} " id="dm">회원탈퇴</a>
-		   
+			</div>
+			<a href="/admin/adminUser/userDelete?id=${requestScope.dto.id} " id="dm" class="btn btn-outline-danger">회원탈퇴</a>
+			</div>	
+			<table border="0" id="tableForPic">
+				<tr>
+					<td width="900" height="600">
+						<div style="display: block; margin-left: auto; margin-right:auto;" class="picture">
+							<c:if test="${not empty sessionScope.memberFile}">
+								<img style="display: block; margin-left: auto; margin-right:auto;" alt="" src="../resources/upload/member/${memberFile.fileName}">
+							</c:if>
+							<c:if test="${empty sessionScope.memberFile}">
+								<img style="display: block; margin-left: auto; margin-right:auto;" alt="" src="../resources/img/기본프사.png">
+							</c:if>
+						</div>
+					</td>
+				</tr>
+			</table>
 
 			</div>
 			</div>
@@ -194,7 +229,7 @@
     <script src="/resources/js/admin/demo/chart-area-demo.js"></script>
     <script src="/resources/js/admin/demo/chart-pie-demo.js"></script>
     
-    <script>
+    <!-- <script>
 			const dm = document.getElementById("dm")
 			const ic = document.getElementById("ic")
 			const ic2 = document.getElementById("ic2")
@@ -216,12 +251,12 @@
 
 			ic2.addEventListener('click', function(){
 				fr6.submit();
-			})
+			}) -->
 	
-			// searchMember.addEventListener('click', function(){
+			<!-- // searchMember.addEventListener('click', function(){
 			// 	fr4.submit();
-			// })
-		</script>
+			// }) -->
+		<!-- </script> -->
 
 </body>
 

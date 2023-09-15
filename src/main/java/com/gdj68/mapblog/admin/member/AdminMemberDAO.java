@@ -54,6 +54,11 @@ public class AdminMemberDAO {
 	}
 	
 	//update
+		public AdminMemberDTO getMyPage(AdminMemberDTO adminMemberDTO)throws Exception{
+			return sqlSession.selectOne(NAMESPACE+"setAdminUpdate", adminMemberDTO);
+		}
+	
+	//update
 	public int setAdminUpdate(AdminMemberDTO adminMemberDTO)throws Exception{
 		return sqlSession.update(NAMESPACE+"setAdminUpdate", adminMemberDTO);
 	}

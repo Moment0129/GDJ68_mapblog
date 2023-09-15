@@ -45,7 +45,7 @@
 
                 <!-- Topbar -->
                 <nav>
-
+					
                     <c:import url="../../temp/adminHeader.jsp"></c:import>
 
                 </nav>
@@ -68,6 +68,10 @@
 				
 			<form action="adminMyPage" method="post">
 				<div class="mb-3">
+				<input type="hidden" value="${adminDTO.adminId}" name="adminId">
+				<input type="hidden" value="${adminDTO.adminName}" name="adminName">
+				<input type="hidden" value="${adminDTO.adminGrade}" name="adminGrade">
+				<input type="hidden" value="${adminDTO.adminCreateDate}" name="adminCreateDate">
 				  <label for="adminPw" class="form-label">PASSWORD</label>
 				  <input type="password" value="${adminDTO.adminPw}" name="adminPw" class="form-control" id="adminPw" placeholder="PW를 입력하세요">
 				</div>

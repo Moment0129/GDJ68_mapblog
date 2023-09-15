@@ -160,7 +160,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         <input type="hidden" name="meetingDate" id="meetingDate2" />
         <input type="hidden" name="lat" id="lat" />
         <input type="hidden" name="lng" id="lng" />
-        <div class="input-group mb-3" style="width: 400px; display: none;">
+        <div class="input-group mb-3" style="width: 400px">
           <span class="input-group-text">모임장소</span>
           <input
             type="hidden"

@@ -48,7 +48,6 @@ public class FeedDAO {
 	}
 
 	public MemberDTO getUser(FeedDTO feedDTO) throws Exception {
-		// TODO Auto-generated method stub
 		return sqlSession.selectOne(NAMESPACE + "getUser", feedDTO);
 	}
 
@@ -232,7 +231,7 @@ public class FeedDAO {
 	
 	
 
-// 팔로우 확인
+	// 팔로우 확인
 	public int checkFollow(FollowDTO followDTO) throws Exception {
 		
 		return sqlSession.selectOne(NAMESPACE+"checkFollow", followDTO);
