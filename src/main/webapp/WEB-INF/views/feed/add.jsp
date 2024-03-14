@@ -197,7 +197,7 @@
             
                     <!-- 지도 -->
                     <div id="map" class="mt-3"></div>
-                    <div id="clickLatlng"></div>
+                    <div class="hidden" id="clickLatlng"></div>
                     <p id="result"></p>
                 </div>
             

@@ -49,7 +49,7 @@ $("#add").click(function(){
   	let f = '<div class="input-group mb-3" id="file'+idx+'">';
     
     f = f + '<input type="file" name="photos" class="form-control" id="pic">';
-    f = f + '<button type="button" class="btn btn-primary df"> X </button>';
+    f = f + '<button type="button" class="btn btn-primary df" style="padding: 16px 16px 17px;"> X </button>';
     f = f + '</div>';
     idx++;
 
