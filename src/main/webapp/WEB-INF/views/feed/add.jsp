@@ -12,7 +12,7 @@
         <c:import url="../temp/bootStrap.jsp"></c:import>
 
         <!-- Kakao Map -->
-        <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=d19d0bc22748e1c8a814e507a6e96ed2&libraries=services"></script>
+        <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=b2096bd9f51f8df3dc9375916bfac86b&libraries=services"></script>
     
         <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>

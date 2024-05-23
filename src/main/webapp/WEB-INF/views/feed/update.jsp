@@ -12,7 +12,7 @@
         <c:import url="../temp/bootStrap.jsp"></c:import>
 
         <!-- Kakao Map -->
-        <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=d19d0bc22748e1c8a814e507a6e96ed2&libraries=services"></script>
+        <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=b2096bd9f51f8df3dc9375916bfac86b&libraries=services"></script>
     
         <!-- include summernote css/js -->
         <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
